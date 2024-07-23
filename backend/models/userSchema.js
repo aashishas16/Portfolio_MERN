@@ -82,6 +82,8 @@ userSchema.methods.comparePassword = async function (enteredPassword) {
 };
 
 userSchema.methods.generateJsonWebToken = function () {
+  console.log( process.env.JWT_SECRET_KEY)
+  console.log( process.env.JWT_EXPIRES)
   return jwt.sign({ id: this._id }, process.env.JWT_SECRET_KEY, {
     expiresIn: process.env.JWT_EXPIRES,
   });

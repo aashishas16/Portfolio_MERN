@@ -3,6 +3,7 @@ dotenv.config()
 
 export const generateToken = (user, message, statusCode, res) => {
   const token = user.generateJsonWebToken();
+  console.log(process.env.COOKIE_EXPIRE)
   res
     .status(statusCode)
     .cookie("token", token, {
